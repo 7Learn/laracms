@@ -30,4 +30,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
+
+//    public function getWalletAttribute($value)
+//    {
+//        return number_format($value);
+//    }
+
+    public function setWalletAttribute($value){
+        $this->attributes['wallet'] = str_replace(',','',$value);
+    }
 }

@@ -3,6 +3,7 @@
     {{ $page_data['panel_title'] }}
 @stop
 @section('content')
+    @include('admin.users.notifications')
     @include('admin.users.operations')
     <table class="table table-bordered">
         <thead>

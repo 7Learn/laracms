@@ -1,7 +1,21 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: 7learn
- * Date: 18/05/2017
- * Time: 06:39 PM
- */
+@if(session('successInsert'))
+    <div class="alert alert-success">
+        <p>
+            کاربر جدید با موفقیت ساخته شد.
+        </p>
+    </div>
+    @endif
+@if(session('successDeleted'))
+    <div class="alert alert-success">
+        <p>
+            کاربر مورد نظر با موفقیت حذف شد.
+        </p>
+    </div>
+@endif
+@if(session('failDelete'))
+    <div class="alert alert-danger">
+        <p>
+            کاربر مورد نظر وجود ندارد.
+        </p>
+    </div>
+@endif
