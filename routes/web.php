@@ -28,4 +28,14 @@ Route::group(['prefix' => 'admin','namespace' => 'Admin'],function (){
         Route::get('/users/delete/{user_id}','UsersController@remove')->name('admin.users.remove');
         Route::get('/users/edit/{user_id}','UsersController@edit')->name('admin.users.edit');
         Route::post('/users/edit/{user_id}','UsersController@update')->name('admin.users.update');
+
+        //posts
+
+        Route::get('/posts','PostsController@index')->name('admin.posts.index');
+        Route::get('/posts/create','PostsController@create')->name('admin.posts.create');
+        Route::post('/posts/create','PostsController@store')->name('admin.posts.create');
+         Route::get('/posts/delete/{post_id}','PostsController@remove')->name('admin.posts.remove');
+        Route::get('/posts/edit/{post_id}','PostsController@edit')->name('admin.posts.edit');
+        Route::post('/posts/edit/{post_id}','PostsController@update')->name('admin.posts.update');
+
 });

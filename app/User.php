@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -43,5 +44,11 @@ class User extends Authenticatable
 
     public function setWalletAttribute($value){
         $this->attributes['wallet'] = str_replace(',','',$value);
+    }
+
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class,'post_user_id');
     }
 }

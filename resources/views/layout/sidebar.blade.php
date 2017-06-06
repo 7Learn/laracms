@@ -11,7 +11,7 @@
                 <a href="{{  route('admin.users.index') }}">کاربران</a>
             </li>
             <li class="list-group-item">
-                <a href="#">مطالب</a>
+                <a href="{{ route('admin.posts.index') }}">مطالب</a>
             </li>
             <li class="list-group-item">
                 <a href="#">دسته بندی</a>
