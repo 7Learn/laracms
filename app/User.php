@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -33,7 +34,8 @@ class User extends Authenticatable
     ];
 
 
-    public function setPasswordAttribute($value){
+    public function setPasswordAttribute($value)
+    {
         $this->attributes['password'] = bcrypt($value);
     }
 
@@ -42,13 +44,19 @@ class User extends Authenticatable
 //        return number_format($value);
 //    }
 
-    public function setWalletAttribute($value){
-        $this->attributes['wallet'] = str_replace(',','',$value);
+    public function setWalletAttribute($value)
+    {
+        $this->attributes['wallet'] = str_replace(',', '', $value);
     }
 
 
     public function posts()
     {
-        return $this->hasMany(Post::class,'post_user_id');
+        return $this->hasMany(Post::class, 'post_user_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'comment_user_id');
     }
 }

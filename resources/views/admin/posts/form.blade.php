@@ -30,6 +30,19 @@
 
     </div>
     <div class="form-group">
+        <label for="post_categories">
+            دسته بندی های مطلب
+        </label>
+        <select multiple name="post_categories[]" class="form-control" id="post_categories">
+            @if(isset($categories))
+                @foreach($categories as $category)
+                    <option value="{{ $category->category_id  }}">{{ $category->name }}</option>
+                    @endforeach
+                @endif
+        </select>
+
+    </div>
+    <div class="form-group">
         <label for="post_thumbnail">
             تصویر شاخص
         </label>

@@ -14,10 +14,13 @@
                 <a href="{{ route('admin.posts.index') }}">مطالب</a>
             </li>
             <li class="list-group-item">
-                <a href="#">دسته بندی</a>
+                <a href="{{ route('admin.categories.index') }}">دسته بندی</a>
             </li>
             <li class="list-group-item">
-                <a href="#">دیدگاه ها</a>
+                <a href="{{ route('admin.tags.index') }}">تگ ها</a>
+            </li>
+            <li class="list-group-item">
+                <a href="{{ route('admin.comments.index') }}">دیدگاه ها</a>
             </li>
 
         </ul>

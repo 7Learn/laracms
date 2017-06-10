@@ -11,31 +11,27 @@ class Post extends Model
 
     protected $primaryKey = 'post_id';
 
-
     protected $dates = ['published_at'];
 
-//    const UPDATED_AT = '';
-//    const CREATED_AT = '';
-
-    protected $fillable = [
-        'post_title',
-        'post_content',
-        'post_slug',
-        'post_user_id',
-        'post_thumbnail',
-        'post_status'
-    ];
-//    protected $guarded = [];
-
-//    protected $dates = [
-//        'expired_at'
-//    ];
-
-//    public $incrementing =false;
-
+    protected $guarded = ['post_id'];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'post_user_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'post_category', 'post_id', 'category_id');
+    }
+
+    public function tags()
+    {
+        return $this->morphToMany(Tag::class,'taggable');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'comment_post_id','post_id');
     }
 }

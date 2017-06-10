@@ -3,19 +3,19 @@
     {{ $page_data['panel_title'] }}
 @stop
 @section('content')
-    @include('admin.users.notifications')
-    @include('admin.users.operations')
+    @include('admin.categories.notifications')
+    @include('admin.categories.operations')
     <table class="table table-bordered">
         <thead>
-        @include('admin.users.columns')
+        @include('admin.categories.columns')
         </thead>
         <tbody>
-        @foreach($users as $user)
-            @include('admin.users.item',$user)
+        @foreach($categories as $category)
+            @include('admin.categories.item',$category)
         @endforeach
         </tbody>
         <tfoot>
-        @include('admin.users.columns')
+        @include('admin.categories.columns')
         </tfoot>
     </table>
 @stop
