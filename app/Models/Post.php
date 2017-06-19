@@ -34,4 +34,9 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class,'comment_post_id','post_id');
     }
+
+    public function getExcerptAttribute()
+    {
+        return substr($this->attributes['post_content'],0,200).' ... ';
+    }
 }

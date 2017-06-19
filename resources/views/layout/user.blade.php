@@ -19,7 +19,23 @@
 <body>
 @include('layout.user_nav')
 <div class="container">
-    @yield('content')
+    <div class="row">
+       <div class="col-xs-12 col-md-4">
+           <div class="panel panel-default">
+               <div class="panel-heading">دسته بندی ها</div>
+               <div class="panel-body">
+                   @if($categories && count($categories) > 0)
+                       @foreach($categories as $cat)
+                           <a class="cat" href="{{ route('home.cat',$cat->category_id) }}">{{ $cat->name  }}</a>
+                           @endforeach
+                       @endif
+               </div>
+           </div>
+       </div>
+       <div class="col-xs-12 col-md-8">
+           @yield('content')
+       </div>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

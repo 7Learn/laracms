@@ -13,7 +13,7 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-
+       // return response()->json($data);
     }
 
     public function index(Request $request)

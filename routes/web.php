@@ -13,6 +13,9 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('post/{post_id}','HomeController@show')->name('home.show');
+Route::get('category/{cat_id}','HomeController@displayCats')->name('home.cat');
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admin']], function () {
     Route::get('/', 'AdminController@index')->name('admin.dashboard.index');
     Route::get('/users', 'UsersController@index')->name('admin.users.index');
